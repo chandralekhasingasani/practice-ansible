@@ -2,7 +2,7 @@
   name: play1
   vars:
     URL: GOOGLE.COM
-  vars-file:
+  vars_file:
     - sample-vars.yml
   tasks:
     - ansible.builtin.debug:
