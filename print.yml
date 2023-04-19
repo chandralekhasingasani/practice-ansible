@@ -1,5 +1,9 @@
 - hosts: all
   name: play1
+  vars:
+    URL: GOOGLE.COM
   tasks:
     - ansible.builtin.debug:
         msg:  hellow owl
+    - ansible.builtin.debug:
+        msg: "{{URL}}"
