@@ -7,3 +7,5 @@
         msg:  hellow owl
     - ansible.builtin.debug:
         msg: "{{ URL }}"
+      vars:
+        URL: yahoo.com
