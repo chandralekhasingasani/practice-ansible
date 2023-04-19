@@ -6,4 +6,4 @@
     - ansible.builtin.debug:
         msg:  hellow owl
     - ansible.builtin.debug:
-        msg: "{{URL}}"
+        msg: "{{ URL }}"
