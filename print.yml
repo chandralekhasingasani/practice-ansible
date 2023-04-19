@@ -1,15 +1,8 @@
 - hosts: all
   name: play1
-  vars:
-    URL: GOOGLE.COM
   vars_file:
     - sample-vars.yml
   tasks:
     - ansible.builtin.debug:
-        msg:  hellow owl
-    - ansible.builtin.debug:
         msg: "{{ URL }}"
-      vars:
-        URL: yahoo.com
-    - ansible.builtin.debug:
-        msg: "{{ URL }}"
+    
