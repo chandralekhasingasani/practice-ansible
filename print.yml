@@ -2,6 +2,8 @@
   name: play1
   vars:
     URL: GOOGLE.COM
+  vars-file:
+    - sample-vars.yml
   tasks:
     - ansible.builtin.debug:
         msg:  hellow owl
@@ -9,3 +11,5 @@
         msg: "{{ URL }}"
       vars:
         URL: yahoo.com
+    - ansible.builtin.debug:
+        msg: "{{ URL }}"
