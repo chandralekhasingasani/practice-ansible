@@ -8,4 +8,5 @@
 
     - ansible.builtin.debug:
         msg: {{ OUT }}
-
+      vars:
+        OUTPUT: {{ OUT }}
