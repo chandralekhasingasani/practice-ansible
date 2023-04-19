@@ -7,6 +7,6 @@
       register: OUT
 
     - ansible.builtin.debug:
-        msg: {{ OUT }}
+        msg: "{{ OUT }}"
       vars:
-        OUTPUT: {{ OUT }}
+        OUTPUT: "{{ OUT }}"
