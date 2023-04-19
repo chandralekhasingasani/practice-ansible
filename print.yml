@@ -1,0 +1,5 @@
+- hosts: all
+  name: play1
+  tasks:
+    - ansible.builtin.debug:
+        msg:  hellow owl
