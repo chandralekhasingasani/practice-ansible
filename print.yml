@@ -10,3 +10,8 @@
         msg: "{{ OUTPUT }}"
       vars:
         OUTPUT: "{{ OUT }}"
+
+    - set_fact:
+        fact: "{{ OUT.stdout_lines }}"
+    - ansible.builtin.debug:
+        msg: "{{ fact }}"
