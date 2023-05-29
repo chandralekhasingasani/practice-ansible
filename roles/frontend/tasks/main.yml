@@ -36,3 +36,14 @@
   ansible.builtin.yum:
     name: nginx
     state: latest
+
+- name: Remove files
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: absent
+
+- name: Unarchive a file that needs to be downloaded
+  ansible.builtin.unarchive:
+    src: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
+    dest: /tmp/
+    remote_src: yes
