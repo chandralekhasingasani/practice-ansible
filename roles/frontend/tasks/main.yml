@@ -54,7 +54,7 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
-- name: Copy template 
+- name: Copy roboshop.conf
   ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
@@ -62,5 +62,5 @@
 - name: start nginx
   ansible.builtin.systemd:
     name: nginx
-    state: started
+    state: restarted
     enabled: true
