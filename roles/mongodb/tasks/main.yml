@@ -37,4 +37,22 @@
     regexp: '127.0.0.1'
     replace: '0.0.0.0'
 
+- name: Install mongodb
+  ansible.builtin.systemd:
+    name: mongod
+    state: restarted
+    enabled: yes
 
+- name: Unarchive a file that needs to be downloaded
+  ansible.builtin.unarchive:
+    src: "https://github.com/roboshop-devops-project/mongodb/archive/main.zip"
+    dest: /tmp/
+    remote_src: yes
+
+- name: Run a js file containing MongoDB commands with pseudo-idempotency
+  community.mongodb.mongodb_shell:
+    file: "/tmp/mongodb-main/{{item}}.js"
+    idempotent: yes
+  loop:
+    - catalogue
+    - users
