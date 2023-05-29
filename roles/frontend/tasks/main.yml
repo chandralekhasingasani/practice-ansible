@@ -45,7 +45,7 @@
 - name: Unarchive a file that needs to be downloaded
   ansible.builtin.unarchive:
     src: "https://github.com/roboshop-devops-project/frontend/archive/main.zip"
-    dest: /tmp/
+    dest: /tmp/frontend
     remote_src: yes
 
 - name: Copy file with owner and permissions
