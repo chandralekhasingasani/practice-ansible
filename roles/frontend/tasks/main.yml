@@ -54,7 +54,7 @@
     dest: /usr/share/nginx/html/
     remote_src: yes
 
-- name: Copy a new sudoers file into place, after passing validation with visudo
+- name: Copy template 
   ansible.builtin.template:
     src: roboshop.conf
     dest: /etc/nginx/default.d/roboshop.conf
