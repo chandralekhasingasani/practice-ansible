@@ -1,4 +1,5 @@
 - name: Update web servers
   hosts: "{{HOST_NAME}}"
+  become: yes
   roles:
     - "{{ROLE_NAME}}"
