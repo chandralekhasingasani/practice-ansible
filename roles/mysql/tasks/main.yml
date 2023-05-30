@@ -13,9 +13,14 @@
     name: common
     tasks_from: systemd
 
+- name: Get MySQL version with non-default credentials
+  community.mysql.mysql_info:
+    login_user: root
+    login_password: RoboShop@1
+    filter: version
+  ignore_errors: true
+  register: status
 
-- name: get default password
-  ansible.builtin.shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
-  register: DEFAULT_PASSWORD
+- name: print status
+  debug: {{status}}
 
-- name:
