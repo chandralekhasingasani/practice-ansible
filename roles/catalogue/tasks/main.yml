@@ -2,9 +2,9 @@
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_lts.x | bash
 
 - name: Install yum packages
+  ansible.builtin.shell: yum install nodejs --enablerepo=epel-testing
   ansible.builtin.yum:
     name:
-      -  nodejs
       -  gcc-c++
     state: installed
 
