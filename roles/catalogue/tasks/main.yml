@@ -8,4 +8,4 @@
 
 - name: Add the user roboshop
   ansible.builtin.user:
-    name: johnd
+    name: roboshop
