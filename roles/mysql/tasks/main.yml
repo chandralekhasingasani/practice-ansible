@@ -24,5 +24,16 @@
   register: status
 
 - name: status
-  ansible.builtin.debug:
-    msg: "{{status.failed}}"
+  when: "{{status.failed}}" | bool
+  block:
+    - name: Get default password
+      ansible.builtin.shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
+      register: DEFAULT_PASSWORD
+
+    - name: copy file
+      ansible.builtin.copy:
+        src: password-reset.sql
+        dest: /tmp/password-reset.sql
+
+    - name: copy file
+      ansible.builtin.shell: mysql --connect-expired-password -u root -p{{DEFAULT_PASSWORD}} </tmp/password-reset.sql
