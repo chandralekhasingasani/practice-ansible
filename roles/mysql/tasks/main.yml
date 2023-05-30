@@ -22,5 +22,5 @@
   register: status
 
 - name: print status
-  debug: {{status}}
+  debug: "{{status}}"
 
