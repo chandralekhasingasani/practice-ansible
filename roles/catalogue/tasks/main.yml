@@ -1,0 +1,11 @@
+- name: Configure NodeJS YUM Repos
+  ansible.builtin.shell: "curl -sL https://rpm.nodesource.com/setup_lts.x | bash"
+
+- name: Install yum packages
+  ansible.builtin.yum:
+    - name: nodejs
+    - name: gcc-c++
+
+- name: Add the user roboshop
+  ansible.builtin.user:
+    name: johnd
