@@ -6,6 +6,7 @@
 - name: Install yum
   yum:
     name: redis-6.2.7
+    state: installed
 
 - name: Replace 127.0.0.1 with 0.0.0.0
   ansible.builtin.replace:
