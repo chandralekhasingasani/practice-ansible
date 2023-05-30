@@ -3,6 +3,8 @@
 
 - name: Install yum packages
   ansible.builtin.shell: yum install nodejs --enablerepo=epel-testing
+
+- name: Install gcc-c++
   ansible.builtin.yum:
     name:
       -  gcc-c++
