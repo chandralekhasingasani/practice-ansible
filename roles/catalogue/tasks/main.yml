@@ -26,7 +26,8 @@
 
 - name: Copy file with owner and permissions
   ansible.builtin.copy:
-    src: /tmp/{{COMPONENT}}-main
-    dest: /home/roboshop/{{COMPONENT}}
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/
     owner: roboshop
     remote_src: yes
+
