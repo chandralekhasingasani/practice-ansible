@@ -1,5 +1,5 @@
 - name: systemd
   ansible.builtin.systemd:
-    state: started
+    state: restarted
     name: "{{COMPONENT}}"
     enabled: true
