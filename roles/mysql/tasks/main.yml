@@ -24,7 +24,7 @@
   register: status
 
 - name: status
-  when: {{status.failed}} 
+  when: {{status.failed}}|bool
   block:
     - name: Get default password
       ansible.builtin.shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
