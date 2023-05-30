@@ -1,38 +1,9 @@
-- name: Install gcc-c++
-  ansible.builtin.yum:
-    name:
-      - make
-      - gcc-c++
-    state: installed
+- name: Run tasks from nodejs
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: nodejs
 
-- name: Configure NodeJS YUM Repos
-  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash -
-
-- name: Install nodejs
-  ansible.builtin.yum:
-    name:
-      - nodejs
-    state: installed
-
-- name: Add the user roboshop
-  ansible.builtin.user:
-    name: roboshop
-
-- name: Unarchive a file that needs to be downloaded
-  ansible.builtin.unarchive:
-    src: "https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip"
-    dest: /tmp/
-    remote_src: yes
-
-- name: Remove file (delete directory)
-  ansible.builtin.file:
-    path: /home/roboshop/
-    state: absent
-
-- name: Copy file with owner and permissions
-  ansible.builtin.copy:
-    src: /tmp/{{COMPONENT}}-main/
-    dest: /home/roboshop/{{COMPONENT}}/
-    owner: roboshop
-    remote_src: yes
-
+- name: Run tasks from systemd
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd
