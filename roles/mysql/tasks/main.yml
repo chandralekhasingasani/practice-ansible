@@ -23,6 +23,6 @@
   ignore_errors: true
   register: status
 
-- name: print status
-  ansible.builtin.debug: "{{ status.stdout }}"
-
+- name: status
+  ansible.builtin.debug:
+    msg: "{{status}}"
