@@ -1,0 +1,21 @@
+- name: Copy mysql repo
+  ansible.builtin.copy:
+    src: mongo.repo
+    dest: /etc/yum.repos.d/mysql.repo
+
+- name: Install mysql-community-server
+  ansible.builtin.yum:
+    name: mysql-community-server
+    state: installed
+
+- name: Run tasks from systemd
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd
+
+
+- name: get default password
+  ansible.builtin.shell: grep 'A temporary password' /var/log/mysqld.log | awk '{print $NF}'
+  register: DEFAULT_PASSWORD
+
+- name:
