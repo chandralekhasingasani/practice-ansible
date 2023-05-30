@@ -23,7 +23,6 @@
   ignore_errors: true
   register: status
 
-
 - name: print status
   debug: "{{status.OUT}}"
 
