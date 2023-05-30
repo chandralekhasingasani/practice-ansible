@@ -1,12 +1,12 @@
-- name: Configure NodeJS YUM Repos
-  ansible.builtin.shell: curl -fsSL https://rpm.nodesource.com/setup_14.x | bash
-
 - name: Install gcc-c++
   ansible.builtin.yum:
     name:
-      - nodejs
-      -  gcc-c++
+      - make
+      - gcc-c++
     state: installed
+
+- name: Configure NodeJS YUM Repos
+  ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash -
 
 - name: Add the user roboshop
   ansible.builtin.user:
