@@ -26,6 +26,6 @@
 
 - name: Copy file with owner and permissions
   ansible.builtin.copy:
-    src: /tmp/{{COMPONENET}}-main
+    src: /tmp/{{COMPONENT}}-main
     dest: /tmp/roboshop/
     owner: roboshop
