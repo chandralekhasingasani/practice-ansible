@@ -1,5 +1,5 @@
 - name: Configure yum package
-  files:
+  ansible.builtin.copy:
     src: redis.repo
     dest: /etc/yum.repos.d/
 
