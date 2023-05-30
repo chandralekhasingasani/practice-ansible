@@ -1,0 +1,14 @@
+- name: Run tasks from nodejs
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: nodejs
+
+- name: Copy systemd.service
+  ansible.builtin.template:
+    src: systemd.service
+    dest: /etc/systemd/system/{{COMPONENT}}.service
+
+- name: Run tasks from systemd
+  ansible.builtin.import_role:
+    name: common
+    tasks_from: systemd
