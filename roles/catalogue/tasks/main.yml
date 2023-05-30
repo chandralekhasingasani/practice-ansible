@@ -8,6 +8,12 @@
 - name: Configure NodeJS YUM Repos
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash -
 
+- name: Install nodejs
+  ansible.builtin.yum:
+    name:
+      - nodejs
+    state: installed
+
 - name: Add the user roboshop
   ansible.builtin.user:
     name: roboshop
