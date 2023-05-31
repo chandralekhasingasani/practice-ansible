@@ -50,4 +50,4 @@
     login_password: RoboShop@1
     state: import
     name: all
-    target: /tmp/shipping.sql
+    target: /tmp/mysql-main/shipping.sql
