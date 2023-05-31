@@ -1,3 +1,3 @@
 - name: Setup Hostname
-  ansible.builtin.shell: ls
+  ansible.builtin.shell: set-hostname
   become: yes
