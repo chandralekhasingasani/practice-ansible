@@ -1,5 +1,7 @@
 - name: Install
   hosts: "{{HOST_NAME}}"
   become: yes
-  ansible.builtin.debug:
-    msg: "{{ lookup('amazon.aws.aws_secret', 'roboshop', region='us-east-1') | from_json }}"
+  tasks:
+    - name: test
+      ansible.builtin.debug:
+      msg: "{{ lookup('amazon.aws.aws_secret', 'roboshop', region='us-east-1') | from_json }}"
