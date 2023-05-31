@@ -31,3 +31,12 @@
 - name: get user details
   ansible.builtin.debug:
     msg: "{{user_details}}"
+
+- name: Replace a localhost entry with our own
+  ansible.builtin.lineinfile:
+    path: /home/roboshop/{{COMPONENT}}/{{COMPONENT}}.ini
+    regexp: '^{{item.key}}'
+    line: "{{item.value}}"
+  loop:
+    - {key: "uid" , value: "uid = {{user_details.uid}}"}
+    - {key: "gid" , value: "gid = {{user_details.group}}"}
