@@ -2,5 +2,6 @@
   hosts: "{{HOST_NAME}}"
   become: yes
   tasks:
-    - ansible.builtin.debug:
-        msg: "{{ lookup('amazon.aws.aws_secret', 'roboshop', region='us-east-1') | from_json }}"
+    - name: lookup secretsmanager secret in the current region
+      debug: msg="{{ lookup('amazon.aws.aws_secret', 'roboshop', bypath=true) }}"
+
