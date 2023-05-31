@@ -4,6 +4,6 @@
   tasks:
     - name: lookup secretsmanager secret in the current region
       debug:
-        msg: "{{lookup('amazon.aws.aws_secret', 'roboshop', region='us-east-1')}}"
+        msg: "{{ lookup('aws_secret', 'roboshop',region='us-east-1')}}"
 
 
