@@ -1,0 +1,33 @@
+- name: Install gcc-c++
+  ansible.builtin.yum:
+    name:
+      - python36
+      - gcc
+      - python3-devel
+    state: installed
+
+- name: Add the user roboshop
+  ansible.builtin.user:
+    name: roboshop
+  register: user_details
+
+- name: Unarchive a file that needs to be downloaded
+  ansible.builtin.unarchive:
+    src: "https://github.com/roboshop-devops-project/{{COMPONENT}}/archive/main.zip"
+    dest: /tmp/
+    remote_src: yes
+
+- name: copy file
+  ansible.builtin.copy:
+    src: /tmp/{{COMPONENT}}-main/
+    dest: /home/roboshop/{{COMPONENT}}/
+    remote_src: yes
+
+- name: Install specified python requirements
+  ansible.builtin.pip:
+    requirements: /home/roboshop/{{COMPONENT}}/requirements.txt
+    executable: pip3
+
+- name: get user details
+  ansible.builtin.debug:
+    msg: "{{user_details}}"
