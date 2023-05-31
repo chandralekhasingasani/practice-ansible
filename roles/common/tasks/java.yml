@@ -27,6 +27,6 @@
     remote_src: yes
 
 - name: Install packages
-  ansible.buitin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
-    args:
-      chdir: /home/roboshop/{{COMPONENT}}-main/
+  ansible.builtin.shell: mvn clean package && mv target/{{COMPONENT}}-1.0.jar {{COMPONENT}}.jar
+  args:
+    chdir: /home/roboshop/{{COMPONENT}}-main/
