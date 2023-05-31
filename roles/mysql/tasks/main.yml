@@ -46,8 +46,8 @@
 
 - name: load schema
   community.mysql.mysql_db:
-    login_user: bob
-    login_password: 123456
+    login_user: root
+    login_password: RoboShop@1
     state: import
     name: all
     target: /tmp/shipping.sql
