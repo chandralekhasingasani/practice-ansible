@@ -1,6 +1,4 @@
 - name: Update web servers
   hosts: "{{HOST_NAME}}"
   become: yes
-  tasks:
-    - name: Download secret
-      ansible.builtin.msg: "{{ lookup('amazon.aws.aws_secret', 'roboshop', region='us-east-1') | from_json }}"
+  ansible.builtin.msg: "{{ lookup('amazon.aws.aws_secret', 'roboshop', region='us-east-1') | from_json }}"
