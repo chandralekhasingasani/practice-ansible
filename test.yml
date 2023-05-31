@@ -4,5 +4,6 @@
   tasks:
     - name: lookup secretsmanager secret in the current region
       debug:
-        msg: "{{ lookup('aws_secret', 'roboshop', bypath=true) }}"
+        msg: "{{ lookup('amazon.aws.aws_secret', 'roboshop', bypath=true) }}"
+
 
