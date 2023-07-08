@@ -37,7 +37,7 @@
     remote_src: yes
 
 - name: Install  node.js package.
-  community.general.npm:
+  npm:
     path: /home/roboshop/{{COMPONENT}}/
 
 
