@@ -8,7 +8,7 @@
 - name: Install Python Modules
   pip:
     name:
-      - botocore >= 1.25.0
+      - botocore == 1.25.2
       - boto3 >= 1.22.0
     executable: pip3
 
