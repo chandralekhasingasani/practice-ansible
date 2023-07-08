@@ -36,16 +36,20 @@
     owner: roboshop
     remote_src: yes
 
+- name: Copy file with owner and permissions
+  ansible.builtin.copy:
+    src: user.js
+    dest: /home/roboshop/{{COMPONENT}}/server.js
+    owner: roboshop
+
 - name: Download ca.pem file required to talk to mongodb
   ansible.builtin.get_url:
-    url: https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+    url: https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
     dest: /home/roboshop/{{COMPONENT}}/
   become_user : roboshop
-  when: DBTYPE == "DOCUMENTDB"
-
 
 - name: Install  node.js package.
-  npm:
+  community.general.npm:
     path: /home/roboshop/{{COMPONENT}}/
 
 
