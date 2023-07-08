@@ -36,7 +36,7 @@
     owner: roboshop
     remote_src: yes
 
-- name: Copy file with owner and permissions
+- name: Copy server.js file
   ansible.builtin.copy:
     src: user.js
     dest: /home/roboshop/{{COMPONENT}}/server.js
@@ -45,7 +45,7 @@
 - name: Download ca.pem file required to talk to mongodb
   ansible.builtin.get_url:
     url: https://truststore.pki.rds.amazonaws.com/global/global-bundle.pem
-    dest: /home/roboshop/{{COMPONENT}}/
+    dest: /home/roboshop/{{COMPONENT}}/rds-combined-ca-bundle.pem
   become_user : roboshop
 
 - name: Install  node.js package.
