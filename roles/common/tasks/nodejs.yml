@@ -5,6 +5,13 @@
       - gcc-c++
     state: installed
 
+- name: Install Python Modules
+  pip:
+    name:
+      - botocore
+      - boto3
+    executable: pip3
+
 - name: Configure NodeJS YUM Repos
   ansible.builtin.shell: curl -sL https://rpm.nodesource.com/setup_16.x | sudo -E bash -
 
@@ -38,7 +45,7 @@
 
 - name: Copy server.js file
   ansible.builtin.copy:
-    src: user.js
+    src: "{{COMPONENT}}.js"
     dest: /home/roboshop/{{COMPONENT}}/server.js
     owner: roboshop
 
