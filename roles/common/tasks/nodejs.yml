@@ -36,6 +36,14 @@
     owner: roboshop
     remote_src: yes
 
+- name: Download ca.pem file required to talk to mongodb
+  ansible.builtin.get_url:
+    url: https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
+    dest: /home/roboshop/{{COMPONENT}}/
+  become_user : roboshop
+  when: DBTYPE == "DOCUMENTDB"
+
+
 - name: Install  node.js package.
   npm:
     path: /home/roboshop/{{COMPONENT}}/
