@@ -8,8 +8,8 @@
 - name: Install Python Modules
   pip:
     name:
-      - botocore == 1.25.2
-      - boto3 >= 1.22.0
+      - botocore >= 1.25.1
+      - boto3
     executable: pip3
 
 - name: Configure NodeJS YUM Repos
