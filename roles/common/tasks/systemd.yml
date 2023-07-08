@@ -2,7 +2,7 @@
   ansible.builtin.template:
     src: systemd.service
     dest: /etc/systemd/system/{{COMPONENT}}.service
-  notify: daemon-reload
+  notify: Reload
 
 - name: Flush handlers
   meta: flush_handlers
