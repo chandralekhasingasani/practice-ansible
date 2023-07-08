@@ -49,7 +49,7 @@
   become_user : roboshop
 
 - name: Install  node.js package.
-  community.general.npm:
+  npm:
     path: /home/roboshop/{{COMPONENT}}/
 
 
