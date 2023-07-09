@@ -8,10 +8,11 @@
       - rabbitmq-server
     state: installed
 
-- name: Run tasks from systemd
-  ansible.builtin.import_role:
-    name: common
-    tasks_from: systemd
+- name: systemd
+  ansible.builtin.systemd:
+    state: started
+    name: "{{COMPONENT}}"
+    enabled: true
 
 - name: create Application user
   community.rabbitmq.rabbitmq_user:
