@@ -15,8 +15,8 @@
 
 - name: create Application user
   community.rabbitmq.rabbitmq_user:
-    user: "{{SECRET.RABBITMQ_USER}}"
-    password: "{{SECRET.RABBITMQ_PASSWORD}}"
+    user: "roboshop"
+    password: "roboshop123"
     vhost: /
     configure_priv: .*
     read_priv: .*
