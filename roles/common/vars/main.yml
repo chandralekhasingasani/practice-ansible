@@ -1,1 +1,0 @@
-SECRET: "{{ lookup('amazon.aws.aws_secret', 'roboshop', region='us-east-1') | from_json }}"
