@@ -1,4 +1,4 @@
-- name: Run tasks from prometheus
+- name: Run tasks from  prometheus role
   ansible.builtin.import_role:
     name: prometheus
     tasks_from: server
