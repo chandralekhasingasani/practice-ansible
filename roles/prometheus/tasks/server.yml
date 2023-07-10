@@ -1,0 +1,18 @@
+
+- name: Run tasks from nodejs
+  ansible.builtin.template:
+    src: prometheus.yml
+    dest: /opt/prometheus/promethus.yml
+
+- name: Start promethus
+  ansible.builtin.systemd:
+    state: restarted
+    name: "{{COMPONENT}}"
+    enabled: true
+
+- name: Waits for port 9090
+  ansible.builtin.wait_for:
+    host: 0.0.0.0
+    port: 9090
+    timeout: 20
+    delay: 10
