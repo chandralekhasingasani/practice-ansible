@@ -2,7 +2,12 @@
 - name: Run tasks from nodejs
   ansible.builtin.template:
     src: prometheus.yml
-    dest: /opt/prometheus/promethus.yml
+    dest: /opt/prometheus/prometheus.yml
+
+- name: Copy Prometheus Alert rules
+  ansible.builtin.template:
+    src: alert-rules.yml
+    dest: /opt/prometheus/alert-rules.yml
 
 - name: Start promethus
   ansible.builtin.systemd:
