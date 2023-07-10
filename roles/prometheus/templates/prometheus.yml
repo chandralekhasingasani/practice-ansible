@@ -14,6 +14,7 @@ alerting:
 # Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
 rule_files:
  - "prometheus.yml"
+ - "alert-rules.yml
 
 scrape_configs:
   # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
@@ -26,7 +27,6 @@ scrape_configs:
             values: ["yes"]
     relabel_configs:
       - source_labels: [ __meta_ec2_private_ip ]
-        replacement: '${1}:your port number'
         target_label: ip
       - source_labels: [ __meta_ec2_tag_env ]
         target_label: env
