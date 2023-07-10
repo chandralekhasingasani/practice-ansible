@@ -30,3 +30,8 @@
     name: nginx
     state: restarted
     enabled: yes
+
+- name: Install node exporter
+  ansible.builtin.import_role:
+    name: prometheus
+    tasks_from: node-exporter
